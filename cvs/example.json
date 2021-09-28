@@ -1,0 +1,148 @@
+{
+    "lastname": "Doe",
+    "firstname": "John",
+    "position": "Consultant",
+    "languages": [
+        {
+            "name": "French",
+            "irl_scale": "Native",
+            "cefr_level": "C2"
+        },
+        {
+            "name": "English",
+            "irl_scale": "Full Professional Proficiency",
+            "cefr_level": "C2"
+        }
+    ],
+    "summary": [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam imperdiet eleifend posuere. Proin aliquet, nisi fringilla condimentum imperdiet, erat diam molestie nisi, sed pretium ex nibh ut diam. Vestibulum egestas neque fringilla finibus molestie. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus dignissim consectetur orci. Aenean ut fringilla lorem. Integer luctus massa et malesuada fringilla. Proin finibus mollis porttitor.",
+        "Phasellus lobortis nisi mauris, vel finibus turpis sagittis a. Sed a rhoncus massa. Sed vehicula mauris et lorem bibendum imperdiet. Maecenas congue, elit in egestas congue, augue ex varius nisl, eget ornare felis quam at risus. Nam sit amet turpis quis sapien bibendum tristique. Vestibulum et metus dignissim, dignissim dolor at, varius lacus. Pellentesque et blandit tortor.",
+        "Donec tristique volutpat vestibulum. Integer at arcu id sapien blandit malesuada ut vel diam. Etiam eget ipsum consequat, porta lacus id, luctus lectus. Phasellus feugiat lorem at urna efficitur fermentum non nec elit. Donec pretium erat sit amet arcu fringilla, a posuere arcu lobortis. Vestibulum ligula ex, suscipit a tellus nec, egestas sodales erat. Pellentesque non eleifend magna.",
+        "Morbi congue mi tincidunt mollis volutpat. Curabitur faucibus pulvinar augue quis sagittis. Aliquam auctor pulvinar ex, sagittis rhoncus risus pretium a. Aliquam auctor a urna a mollis. Integer efficitur, nulla quis malesuada placerat, mi nunc tempus orci, ac malesuada eros mi vitae enim. Curabitur vulputate, urna et fermentum ornare, mi purus iaculis orci, condimentum dapibus libero arcu et sapien. Nunc accumsan at urna a pulvinar. Maecenas sodales lacus et porttitor bibendum. Vivamus venenatis sagittis vehicula. Maecenas at quam aliquet, congue ante sed, ultricies sem. In suscipit justo est, et pretium ipsum vestibulum eu. Cras quis sagittis orci, et fringilla nunc. Phasellus vestibulum, ipsum sed tempor accumsan, magna erat pharetra odio, vitae accumsan elit quam in orci. Nullam bibendum et lacus a venenatis.",
+        "Nulla sagittis nec nisi vel volutpat. Donec ultricies dapibus sagittis. Morbi at suscipit metus, id placerat massa. Vestibulum sapien ex, porta et diam vel, auctor vulputate tortor. Ut quam sem, eleifend eu ante id, tincidunt condimentum ligula. Etiam semper ligula nibh, in tempor nisi blandit at. Curabitur at metus vel sapien accumsan fringilla eget ut urna."
+    ],
+    "works": [
+        {
+            "employer": "Company A",
+            "start": 201601,
+            "end": 201612,
+            "position": "Intern",
+            "description": [
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam imperdiet eleifend posuere. Proin aliquet, nisi fringilla condimentum imperdiet, erat diam molestie nisi, sed pretium ex nibh ut diam. Vestibulum egestas neque fringilla finibus molestie. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus dignissim consectetur orci. Aenean ut fringilla lorem. Integer luctus massa et malesuada fringilla. Proin finibus mollis porttitor."
+            ],
+            "projects": [
+                {
+                    "name": null,
+                    "redacted": null,
+                    "position": null,
+                    "start": null,
+                    "end": null,
+                    "description": [
+                        "Lorem"
+                    ],
+                    "activities": [
+                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                        "Nam imperdiet eleifend posuere."
+                    ]
+                },
+                {
+                    "name": null,
+                    "redacted": null,
+                    "position": null,
+                    "start": null,
+                    "end": null,
+                    "description": [
+                        "Ipsum"
+                    ],
+                    "activities": [
+                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                        "Nam imperdiet eleifend posuere."
+                    ]
+                }
+            ]
+        },
+        {
+            "employer": "Company B",
+            "start": 201701,
+            "end": null,
+            "position": "Consultant",
+            "description": [
+                null
+            ],
+            "projects": [
+                {
+                    "name": "Client A",
+                    "redacted": "a Client in Europe",
+                    "position": "Business Analyst",
+                    "start": 201701,
+                    "end": 201712,
+                    "description": [
+                        null
+                    ],
+                    "activities": [
+                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                        "Nam imperdiet eleifend posuere."
+                    ]
+                },
+                {
+                    "name": "Client B",
+                    "redacted": "a Client in the US",
+                    "position": "Project Manager",
+                    "start": 201801,
+                    "end": 201812,
+                    "description": [
+                        null
+                    ],
+                    "activities": [
+                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                        "Nam imperdiet eleifend posuere."
+                    ]
+                },
+                {
+                    "name": "Client C",
+                    "redacted": "a Client in Asia",
+                    "position": "Data Analyst",
+                    "start": 201901,
+                    "end": 201912,
+                    "description": [
+                        null
+                    ],
+                    "activities": [
+                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                        "Nam imperdiet eleifend posuere."
+                    ]
+                },
+                {
+                    "name": "Client D",
+                    "redacted": "a Client in Australia",
+                    "position": "Developer",
+                    "start": 202001,
+                    "end": null,
+                    "description": [
+                        null
+                    ],
+                    "activities": [
+                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                        "Nam imperdiet eleifend posuere."
+                    ]
+                }
+            ]
+        }
+    ],
+    "trainings": [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "Nam imperdiet eleifend posuere."
+    ],
+    "itskills": [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "Nam imperdiet eleifend posuere."
+    ],
+    "educations": [
+        {
+            "school": "A School in Europe",
+            "degree": "A Degree",
+            "start": 2015,
+            "end": 2017
+        }
+    ]
+}
