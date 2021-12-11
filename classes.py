@@ -107,7 +107,7 @@ class Project(JSONableMixin):
                  end: int=None,
                  description: List[str]=None,
                  activities: List[str]=None,
-                 confidential: bool=False):
+                 confidential: bool=True):
         self.name = name
         self.redacted = redacted
         self.position = position
@@ -332,15 +332,11 @@ def remove_nulls(obj):
     elif isinstance(obj, list):
         return [i for i in obj if obj[i] is not None ]
 
-def load_employee_json(json_path, json_encoding):
-    # Load JSON
-    with open(json_path, encoding=json_encoding) as json_file:
-        json_obj = json.load(json_file, object_hook=remove_nulls)
-
+def load_employee(json_obj):
     # Create Employee
     new_employee = Employee(lastname=json_obj['lastname'],
-                           firstname=json_obj['firstname'],
-                           position=json_obj['position'])
+                            firstname=json_obj['firstname'],
+                            position=json_obj['position'])
 
     # Languages
     for language in json_obj['languages']:
@@ -355,7 +351,7 @@ def load_employee_json(json_path, json_encoding):
     # Works
     for work in json_obj['works']:
         new_work = WorkExperience(employer=work['employer'],
-                                     start=work['start'])
+                                  start=work['start'])
 
         # End
         if 'end' in work:
@@ -392,6 +388,15 @@ def load_employee_json(json_path, json_encoding):
     for education in json_obj['educations']:
         new_education = Education(**education)
         new_employee.add_education(new_education)
+
+    return new_employee
+
+def load_employee_json(json_path, json_encoding):
+    # Load JSON
+    with open(json_path, encoding=json_encoding) as json_file:
+        json_obj = json.load(json_file, object_hook=remove_nulls)
+
+    new_employee = load_employee(json_obj)
 
     return new_employee
 
