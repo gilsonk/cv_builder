@@ -333,7 +333,7 @@ class LoadFilesFrame(ttk.Frame):
         #     message=message
         # )
         # render.render_pptx(self.pptx_path, model, save_path)
-        convert(self.pptx_path, j, save_path)
+        # convert(self.pptx_path, j, save_path)
         # except Exception as err:
         #     showerror(
         #         title='Error',
