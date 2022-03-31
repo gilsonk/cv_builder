@@ -1,6 +1,4 @@
-<p align="rigth">
-    [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
-</p>
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
 # CV Builder
 
@@ -18,21 +16,26 @@ Within the **realeases**, download the latest executable file.
 
 ### Cloning it localy
 Within a terminal, clone this repository and access it:
-    git clone https://github.com/gilsonk/cv_builder
+
+    git clone https://github.com/gilsonk/cv_builder.git
     cd cv_builder/
 
 (Optional) Create a virtual environment:
+
     python -m venv PATH_TO_YOUR_ENV
     PATH_TO_YOUR_ENV/activate
 
 Install dependencies:
+
     python -m pip install -r requirements.txt
 
 Then run **cv_builder.py**:
+
     python cv_builder.py
 
 ### (Optional) Compiling it yourself
 From within the cv_builder folder, run:
+
     pyinstaller --onefile --windowed cv_builder.py
 
 ## Data Model
