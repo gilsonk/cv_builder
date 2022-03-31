@@ -1,64 +1,80 @@
-# TODO:
-+ Create a front-end
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
-# Introduction
+# CV Builder
+
+## Introduction
 This project is written in Python and aim to automatically fill-in a CV template, based on a given JSON file.
 
-# Classes
-The project define different custome classes:
-
-### JSONableMixin
-The JSONableMixin serve as a mixin for the next classes, and define a function
-to recursively convert them to dictionaries.
-
-### Language
-The Language class define a language based on:
-+ It's name;
-+ The IRL Scale;
-+ The CEFR Level.
-
-### Education
-The Education class define a degree based on:
-+ The school;
-+ The degree;
-+ The degree start year;
-+ The degree end year.
-
-### Project
-The Project class define a project based on:
-+ It's name;
-+ It's confidential name;
-+ The job position;
-+ The project start;
-+ The project end;
-+ A list of descriptions;
-+ A list of activities;
-+ Whether the project should be treated as confidential or not.
-
-### WorkExperience
-The WorkExperience class define a work experience based on:
-+ The employer;
-+ The employment start date;
-+ The employment end date;
-+ The position;
-+ A list of descriptions;
-+ A list of Projects.
-
-### Employee
-The Employee class define and employee based on:
-+ It's last name;
-+ It's first name;
-+ It's position;
-+ A list of Language;
-+ A list of summaries;
-+ A list of WorkExperience;
-+ A list of trainings;
-+ A list of IT Skills;
-+ A list of Education.
-
-# Dependencies
+## Dependencies
 + [Python-DOCX-Template](https://github.com/elapouya/python-docx-template)
 + [Jinja2](https://pypi.org/project/Jinja2/)
++ [Tkinter](https://docs.python.org/fr/3/library/tkinter.html)
 
-## Author
+## Usage
+### With the compiled executable file (Windows only)
+Within the **realeases**, download the latest executable file.
+
+### Cloning it localy
+Within a terminal, clone this repository and access it:
+
+    git clone https://github.com/gilsonk/cv_builder.git
+    cd cv_builder/
+
+(Optional) Create a virtual environment:
+
+    python -m venv PATH_TO_YOUR_ENV
+    PATH_TO_YOUR_ENV/activate
+
+Install dependencies:
+
+    python -m pip install -r requirements.txt
+
+Then run **cv_builder.py**:
+
+    python cv_builder.py
+
+### (Optional) Compiling it yourself
+Install PyInstaller:
+
+    python -m pip install pyinstaller
+
+From within the cv_builder folder, run:
+
+    python -m pyinstaller --onefile --windowed cv_builder.py
+
+## Data Model
+In order to store CVs, the project define several custome classes, stored under a JSON format:
++ Employee class
+  + Last Name (str)
+  + First Name (str)
+  + Position title (str)
+  + Languages (list of Language objects)
+    + Name (str)
+    + IRL Scale (str)
+    + CEFR Level (str)
+  + Summaries (list of str)
+  + Work Experiences (list of WorkExperience objects)
+    + Employer (str)
+    + Start date (int)
+    + End date (int)
+    + Position title (str)
+    + Description (list of str)
+    + Projects (list of Project objects)
+      + Name (str)
+      + Redacted name (str)
+      + Position title (str)
+      + Start date (int)
+      + End date (int)
+      + Description (list of str)
+      + Activities (list of str)
+      + Confidential (bool)
+  + Trainings (list of str)
+  + IT Skills (list of str)
+  + Educations (list of Education objects)
+    + School (str)
+    + Degree (str)
+    + Start year (int)
+    + End year (int)
+
+### Author
 Gilson, Kevin
