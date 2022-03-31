@@ -13,7 +13,10 @@ import gui
 
 
 class App(tk.Tk):
-    def __init__(self, *args, **kwargs):
+    """App: inherit from 'tkinter.Tk'."""
+
+    def __init__(self, *args, **kwargs) -> None:
+        """Initialize the App class instance."""
         super().__init__(*args, **kwargs)
 
         self.title("CV Builder")

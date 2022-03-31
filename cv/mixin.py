@@ -4,9 +4,27 @@ mixin.py
 Author: Gilson, K.
 """
 
+from typing import Optional
+
 
 class JSONableMixin(object):
-    def to_dict(self, keep_none=True):
+    """JSONableMixin: mixin for nested dictionaries objects."""
+
+    def to_dict(self, keep_none: Optional[bool] = True) -> dict:
+        """Return a nested dictionary of the instance attributes.
+
+        Args:
+            keep_none (bool, optional): whether to keep None values in the dictionary or not. Defaults to True.
+
+        Raises:
+            TypeError: if keep_none is not bool.
+
+        Returns:
+            dict: the nested dictionary of the instance attributes.
+        """
+        if not isinstance(keep_none, bool):
+            raise TypeError("'keep_none' expect a bool.")
+
         dic = {}
         for key, value in self.__dict__.items():
             if isinstance(value, JSONableMixin):

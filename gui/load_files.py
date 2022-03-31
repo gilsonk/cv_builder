@@ -10,28 +10,37 @@ import textwrap
 from tkinter import filedialog
 from tkinter import ttk
 from tkinter.messagebox import showerror, showinfo
+from typing import Any, Optional
 
 import cv
 from .projects_list import ProjectsListFrame
 
 
 class LoadFilesFrame(ttk.Frame):
-    def __init__(self, container, *args, **kwargs):
+    """LoadFilesFrame: inherit from 'tkinter.ttk.Frame'."""
+
+    def __init__(self, container: Any, *args, **kwargs) -> None:
+        """Initialize the LoadFilesFrame class instance.
+
+        Args:
+            container (Any): the parent widget.
+        """
         super().__init__(container, *args, **kwargs)
         self.container = container
 
         self.__create_widgets()
         self.grid(column=0, row=0, sticky="nswe")
 
-    def __create_widgets(self):
+    def __create_widgets(self) -> None:
+        """Initialize the widgets within the frame."""
         padding = {"padx": 5, "pady": 5}
 
         # Welcome text
         welcome_text = textwrap.dedent(
             """
-        Welcome to the CV Builder app.
-        This project aim to populate Jinja2 DOCX and PPTX templates from resume encoded in JSON.
-        """
+            Welcome to the CV Builder app.
+            This project aim to populate Jinja2 DOCX and PPTX templates from resume encoded in JSON.
+            """
         )
         self.welcome_label = ttk.Label(self, text=welcome_text)
         self.welcome_label.pack(fill="both", expand=True, **padding)
@@ -77,7 +86,8 @@ class LoadFilesFrame(ttk.Frame):
         # TODO: Activate the button once the PPTX function will work
         self.pptx_button.state(["disabled"])
 
-    def __reset_project_frames(self):
+    def __reset_project_frames(self) -> None:
+        """Reset the frames."""
         while len(self.container.control_frame.frames) != 1:
             self.container.control_frame.frames.pop(-1)
 
@@ -89,7 +99,8 @@ class LoadFilesFrame(ttk.Frame):
 
         self.container.control_frame.frames[0].tkraise()
 
-    def __open_json(self):
+    def __open_json(self) -> None:
+        """Open a JSON file."""
         file_types = (("json files", "*.json"), ("All files", "*.*"))
 
         self.json_path = filedialog.askopenfilename(
@@ -105,7 +116,8 @@ class LoadFilesFrame(ttk.Frame):
         except Exception as err:
             showerror(title="Error", message=f"Unable to load JSON file:\n{err}")
 
-    def __open_docx(self):
+    def __open_docx(self) -> None:
+        """Open a DOCX file."""
         file_types = (("docx files", "*.docx"), ("All files", "*.*"))
 
         self.docx_path = filedialog.askopenfilename(
@@ -119,7 +131,8 @@ class LoadFilesFrame(ttk.Frame):
         except Exception as err:
             showerror(title="Error", message=f"Unable to load DOCX file:\n{err}")
 
-    def __open_pptx(self):
+    def __open_pptx(self) -> None:
+        """Open a PPTX file."""
         file_types = (("pptx files", "*.pptx"), ("All files", "*.*"))
 
         self.pptx_path = filedialog.askopenfilename(
@@ -134,7 +147,15 @@ class LoadFilesFrame(ttk.Frame):
             showerror(title="Error", message=f"Unable to load PPTX file:\n{err}")
 
     @staticmethod
-    def __ask_save_path(file_type=None):
+    def __ask_save_path(file_type: Optional[str] = None) -> str:
+        """Select the file path to export to.
+
+        Args:
+            file_type (str, optional): the file type to filter on. Defaults to None.
+
+        Returns:
+            str: the file path selected.
+        """
         if file_type == "docx":
             file_types = (("docx files", "*.docx"), ("All files", "*.*"))
         elif file_type == "pptx":
@@ -151,7 +172,15 @@ class LoadFilesFrame(ttk.Frame):
         return save_path
 
     @staticmethod
-    def __format_date(date_int):
+    def __format_date(date_int: int) -> str:
+        """Format a date under the YYYYMM format to one with an explicit month.
+
+        Args:
+            date_int (int): the date under the YYYYMM format.
+
+        Returns:
+            str: the under the 'Month YYYY' format.
+        """
         months_dic = {
             "01": "January",
             "02": "February",
@@ -174,7 +203,8 @@ class LoadFilesFrame(ttk.Frame):
             month = months_dic[date_str[-2:]]
             return f"{month} {year}"
 
-    def build_docx_template(self):
+    def build_docx_template(self) -> None:
+        """Build the DOCX template."""
         # Get save path
         save_path = self.__ask_save_path("docx")
 
@@ -204,8 +234,9 @@ class LoadFilesFrame(ttk.Frame):
                 title="Error", message=f"Unable to build the DOCX template:\n{err}"
             )
 
-    def build_pptx_template(self):
-        # BUG:
+    def build_pptx_template(self) -> None:
+        """Build the PPTX template."""
+        # FIXME:
         # * template_pptx_jinja not working: error
         # * pptx_template not working: no error but just a copy of the template
         # * pptx_templater not working: should convert string to json?

@@ -5,19 +5,28 @@ Author: Gilson, K
 """
 
 from tkinter import ttk
+from typing import Any
 
 from .load_files import LoadFilesFrame
 
 
 class ControlFrame(ttk.Frame):
-    def __init__(self, container, *args, **kwargs):
+    """ControlFrame: inherit from 'tkinter.ttk.Frame'."""
+
+    def __init__(self, container: Any, *args, **kwargs) -> None:
+        """Initialize the ControlFrame class instance.
+
+        Args:
+            container (Any): the parent widget.
+        """
         super().__init__(container, *args, **kwargs)
         self.container = container
 
         self.__create_widgets()
         self.grid(column=0, row=1)
 
-    def __create_widgets(self):
+    def __create_widgets(self) -> None:
+        """Initialize widgets within the frame."""
         padding = {"padx": 5, "pady": 5}
 
         self.previous_button = ttk.Button(
@@ -54,7 +63,12 @@ class ControlFrame(ttk.Frame):
         self.build_docx_button.state(["disabled"])
         self.build_pptx_button.state(["disabled"])
 
-    def __change_frame(self, frame_pos):
+    def __change_frame(self, frame_pos: int) -> None:
+        """Move between frames.
+
+        Args:
+            frame_pos (int): the position of the frame to go to.
+        """
         # Toggle button states
         if frame_pos == 0:
             self.previous_button.state(["disabled"])
@@ -69,10 +83,12 @@ class ControlFrame(ttk.Frame):
         # Change frame
         self.frames[frame_pos].tkraise()
 
-    def __next_frame(self):
+    def __next_frame(self) -> None:
+        """Move to the next frame."""
         self.current_frame += 1
         self.__change_frame(self.current_frame)
 
-    def __previous_frame(self):
+    def __previous_frame(self) -> None:
+        """Move to the previous frame."""
         self.current_frame -= 1
         self.__change_frame(self.current_frame)
