@@ -1,4 +1,4 @@
-# -* coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 """
 cv_builder.py
 Author: Gilson, K

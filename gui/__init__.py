@@ -1,4 +1,4 @@
-# -* coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 """
 __init__.py (gui)
 Author: Gilson, K
