@@ -31,7 +31,7 @@ Install dependencies:
 
 Then run **cv_builder.py**:
 
-    python cv_builder.py
+    python cv_builder/cv_builder.py
 
 ### (Optional) Compiling it yourself
 Install PyInstaller:
@@ -40,7 +40,7 @@ Install PyInstaller:
 
 From within the cv_builder folder, run:
 
-    python -m pyinstaller --onefile --windowed cv_builder.py
+    python -m pyinstaller --onefile --windowed cv_builder/cv_builder.py
 
 ## Data Model
 In order to store CVs, the project define several custome classes, stored under a JSON format:
