@@ -1,0 +1,57 @@
+output-format: pylint
+max-line-length: 88
+
+ignore-paths:
+  - docs
+  - examples
+  - templates
+  - tests
+
+ignore-patterns:
+  - ^.*__init__.py$
+
+bandit:
+  run: true
+  options:
+    config: pyproject.toml
+
+dodgy:
+  run: true
+
+frosted:
+  run: false
+
+mccabe:
+  run: true
+
+mypy:
+  run: true
+
+pycodestyle:
+  run: true
+
+pydocstyle:
+  run: true
+  # NumpyDoc
+  disable:
+    - D107
+    - D203
+    - D212
+    - D213
+    - D402
+    - D413
+    - D415
+    - D416
+    - D417
+
+pyflakes:
+  run: true
+
+pylint:
+  run: false
+
+pyroma:
+  run: false
+
+vulture:
+  run: false
