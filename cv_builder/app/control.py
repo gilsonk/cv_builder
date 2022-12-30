@@ -7,7 +7,7 @@ Author: Gilson, K
 from tkinter import ttk
 from typing import Any
 
-from .load_files import LoadFilesFrame
+from cv_builder.app.load_files import LoadFilesFrame
 
 
 class ControlFrame(ttk.Frame):

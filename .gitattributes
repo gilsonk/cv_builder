@@ -1,0 +1,9 @@
+# Normalise line endings to lF by default
+* text=auto
+
+# CRLF for DOS files
+*.{cmd,[cC][mM][dD]} text eol=crlf
+*.{bat,[bB][aA][tT]} text eol=crlf
+
+# Force LF for UNIX files
+*.sh text eol=lf

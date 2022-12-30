@@ -6,8 +6,8 @@ Author: Gilson, K.
 
 from typing import Any, List, Optional
 
-from .mixin import JSONableMixin
-from .project import Project
+from cv_builder.core.mixin import JSONableMixin
+from cv_builder.core.project import Project
 
 
 class WorkExperience(JSONableMixin):

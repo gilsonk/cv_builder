@@ -6,7 +6,7 @@ Author: Gilson, K.
 
 from typing import Any
 
-from .mixin import JSONableMixin
+from cv_builder.core.mixin import JSONableMixin
 
 
 class Education(JSONableMixin):

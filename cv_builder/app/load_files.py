@@ -4,16 +4,16 @@ load_files.py
 Author: Gilson, K
 """
 
-from docxtpl import DocxTemplate
-import jinja2
 import textwrap
-from tkinter import filedialog
-from tkinter import ttk
+from tkinter import filedialog, ttk
 from tkinter.messagebox import showerror, showinfo
 from typing import Any, Optional
 
-import cv
-from .projects_list import ProjectsListFrame
+import jinja2
+from docxtpl import DocxTemplate
+
+from cv_builder.app.projects_list import ProjectsListFrame
+from cv_builder.core.employee import Employee
 
 
 class LoadFilesFrame(ttk.Frame):
@@ -108,7 +108,7 @@ class LoadFilesFrame(ttk.Frame):
         )
 
         try:
-            self.container.employee = cv.Employee()
+            self.container.employee = Employee()
             self.container.employee.load_from_json(self.json_path, "utf-8")
             self.json_label["text"] = self.json_path
             self.container.control_frame.next_button.state(["!disabled"])

@@ -9,7 +9,7 @@ __version__ = "0.5.0"
 import tkinter as tk
 from tkinter import ttk
 
-import gui
+from cv_builder.app import ControlFrame
 
 
 class App(tk.Tk):
@@ -22,7 +22,7 @@ class App(tk.Tk):
         self.title("CV Builder")
         self.style = ttk.Style(self)
 
-        self.control_frame = gui.ControlFrame(self)
+        self.control_frame = ControlFrame(self)
 
 
 if __name__ == "__main__":

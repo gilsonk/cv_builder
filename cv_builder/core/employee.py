@@ -7,11 +7,11 @@ Author: Gilson, K.
 import json
 from typing import List, Optional, Union
 
-from .education import Education
-from .language import Language
-from .mixin import JSONableMixin
-from .project import Project
-from .work_experience import WorkExperience
+from cv_builder.core.education import Education
+from cv_builder.core.language import Language
+from cv_builder.core.mixin import JSONableMixin
+from cv_builder.core.project import Project
+from cv_builder.core.work_experience import WorkExperience
 
 
 class Employee(JSONableMixin):

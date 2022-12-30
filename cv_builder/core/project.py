@@ -6,7 +6,7 @@ Author: Gilson, K.
 
 from typing import Any, List, Optional
 
-from .mixin import JSONableMixin
+from cv_builder.core.mixin import JSONableMixin
 
 
 class Project(JSONableMixin):
