@@ -1,8 +1,5 @@
 # -*- coding: utf-8 -*-
-"""
-control.py
-Author: Gilson, K
-"""
+"""The 'control' module of the 'app' package contains the main Tkinter control frame."""
 
 from tkinter import ttk
 from typing import Any
@@ -11,14 +8,18 @@ from cv_builder.app.load_files import LoadFilesFrame
 
 
 class ControlFrame(ttk.Frame):
-    """ControlFrame: inherit from 'tkinter.ttk.Frame'."""
+    """Main Control Frame.
+
+    This frame holds the main buttons and widget of the interface.
+
+    Parameters
+    ----------
+    container : Any
+        The parent widget.
+    """
 
     def __init__(self, container: Any, *args, **kwargs) -> None:
-        """Initialize the ControlFrame class instance.
-
-        Args:
-            container (Any): the parent widget.
-        """
+        """Initialise the ControlFrame class instance."""
         super().__init__(container, *args, **kwargs)
         self.container = container
 
@@ -26,7 +27,7 @@ class ControlFrame(ttk.Frame):
         self.grid(column=0, row=1)
 
     def __create_widgets(self) -> None:
-        """Initialize widgets within the frame."""
+        """Initialise widgets within the frame."""
         padding = {"padx": 5, "pady": 5}
 
         self.previous_button = ttk.Button(
@@ -66,8 +67,10 @@ class ControlFrame(ttk.Frame):
     def __change_frame(self, frame_pos: int) -> None:
         """Move between frames.
 
-        Args:
-            frame_pos (int): the position of the frame to go to.
+        Parameters
+        ----------
+        frame_pos : int
+            The position of the frame to go to.
         """
         # Toggle button states
         if frame_pos == 0:

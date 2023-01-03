@@ -1,8 +1,5 @@
 # -*- coding: utf-8 -*-
-"""
-work_experience.py
-Author: Gilson, K.
-"""
+"""The 'work_experience' module of the 'core' package contains classes related to the Work layer of the data model."""
 
 from typing import Any, List, Optional
 
@@ -11,15 +8,22 @@ from cv_builder.core.project import Project
 
 
 class WorkExperience(JSONableMixin):
-    """WorkExperience: inherit from 'JSONableMixin'.
+    """Representation of a Work Experience attributes.
 
-    Attributes:
-        employer (str): name of the employer.
-        start (int): start date of the experience under YYYYMM format.
-        end (int, optional): end date of the experience under YYYYMM format. Defaults to None.
-        position (str, optional): title of the position within the experience. Defaults to None.
-        description (List[str], optional): list of paragraphs of the description. Defaults to None.
-        projects (List[Project], optional): list of Project objects. Defaults to None.
+    Parameters
+    ----------
+    employer : str
+        Name of the employer.
+    start : int
+        Start date of the experience under YYYYMM format.
+    end : int, optional
+        End date of the experience under YYYYMM format, by default None.
+    position : str, optional
+        Title of the position within the experience, by default None.
+    description : List[str], optional
+        List of paragraphs of the description, by default None.
+    projects : List[Project], optional
+        List of Project objects, by default None.
     """
 
     def __init__(
@@ -31,16 +35,7 @@ class WorkExperience(JSONableMixin):
         description: Optional[List[str]] = None,
         projects: Optional[List[Project]] = None,
     ) -> None:
-        """Initialize the WorkExperience class instance.
-
-        Args:
-            employer (str): name of the employer.
-            start (int): start date of the experience under YYYYMM format.
-            end (int, optional): end date of the experience under YYYYMM format. Defaults to None.
-            position (str, optional): title of the position within the experience. Defaults to None.
-            description (List[str], optional): list of paragraphs of the description. Defaults to None.
-            projects (List[Project], optional): list of Project objects. Defaults to None.
-        """
+        """Initialize the WorkExperience class instance."""
         self.employer = employer
         self.start = start
         self.end = end
@@ -51,15 +46,23 @@ class WorkExperience(JSONableMixin):
     def __setattr__(self, name: str, value: Any) -> None:
         """Validate the attributes of the WorkExperience class.
 
-        Args:
-            name (str): the name of the attribute.
-            value (Any): the value of the attribute.
+        Parameters
+        ----------
+        name : str
+            The name of the attribute.
+        value : Any
+            The value of the attribute.
 
-        Raises:
-            TypeError: if 'employer' or 'position' are not a str.
-            TypeError: if 'start' or 'end' are not an int.
-            AttributeError: if 'start' or 'end' have and incorrect length.
-            TypeError: if 'description' or 'projects' are not a list.
+        Raises
+        ------
+        TypeError
+            If 'employer' or 'position' are not a str.
+        TypeError
+            If 'start' or 'end' are not an int.
+        AttributeError
+            If 'start' or 'end' have and incorrect length.
+        TypeError
+            If 'description' or 'projects' are not a list.
         """
         if value is not None:
             if name in ["employer", "position"] and not isinstance(value, str):
@@ -80,14 +83,20 @@ class WorkExperience(JSONableMixin):
     def add_description(self, new_description: str) -> "WorkExperience":
         """Add a paragraph to the description attribute.
 
-        Args:
-            new_description (str): the paragraph to add.
+        Parameters
+        ----------
+        new_description : str
+            The paragraph to add.
 
-        Raises:
-            TypeError: if new_description is not a str.
+        Returns
+        -------
+        WorkExperience
+            The class instance itself.
 
-        Returns:
-            WorkExperience: the class instance itself.
+        Raises
+        ------
+        TypeError
+            If new_description is not a str.
         """
         if not isinstance(new_description, str):
             raise TypeError("'new_description' expect a str.")
@@ -100,14 +109,20 @@ class WorkExperience(JSONableMixin):
     def remove_description(self, old_description: str) -> "WorkExperience":
         """Remove a paragraph from the description attribute.
 
-        Args:
-            old_description (str): the paragraph to remove.
+        Parameters
+        ----------
+        old_description : str
+            The paragraph to remove.
 
-        Raises:
-            TypeError: if old_description is not a str.
+        Returns
+        -------
+        WorkExperience
+            The class instance itself.
 
-        Returns:
-            WorkExperience: the class instance itself.
+        Raises
+        ------
+        TypeError
+            If old_description is not a str.
         """
         if not isinstance(old_description, str):
             raise TypeError("'old_description' expect a str.")
@@ -115,17 +130,23 @@ class WorkExperience(JSONableMixin):
         self.description.remove(old_description)
         return self
 
-    def reorder_description(self, order: list) -> "WorkExperience":
+    def reorder_description(self, order: List[int]) -> "WorkExperience":
         """Reorder the description attribute.
 
-        Args:
-            order (list): the new order of the description attribute.
+        Parameters
+        ----------
+        order : List[int]
+            The new order of the description attribute.
 
-        Raises:
-            TypeError: if order is not a list.
+        Returns
+        -------
+        WorkExperience
+            The class instance itself.
 
-        Returns:
-            WorkExperience: the class instance itself.
+        Raises
+        ------
+        TypeError
+            If order is not a list.
         """
         if not isinstance(order, list):
             raise TypeError("'order' expect a list.")
@@ -137,14 +158,20 @@ class WorkExperience(JSONableMixin):
     def add_project(self, new_project: Project) -> "WorkExperience":
         """Add a Project object to the projects attribute.
 
-        Args:
-            new_project (Project): the Project object to add.
+        Parameters
+        ----------
+        new_project : Project
+            The Project object to add.
 
-        Raises:
-            TypeError: if new_project is not a Project object.
+        Returns
+        -------
+        WorkExperience
+            The class instance itself.
 
-        Returns:
-            WorkExperience: the class instance itself.
+        Raises
+        ------
+        TypeError
+            If new_project is not a Project object.
         """
         if not isinstance(new_project, Project):
             raise TypeError("'new_project' expect a Project object.")
@@ -157,14 +184,20 @@ class WorkExperience(JSONableMixin):
     def remove_project(self, old_project: Project) -> "WorkExperience":
         """Remove a Project object from the projects attribute.
 
-        Args:
-            old_project (Project): the Project object to remove.
+        Parameters
+        ----------
+        old_project : Project
+            The Project object to remove.
 
-        Raises:
-            TypeError: if old_project is not a Project object.
+        Returns
+        -------
+        WorkExperience
+            The class instance itself.
 
-        Returns:
-            WorkExperience: the class instance itself.
+        Raises
+        ------
+        TypeError
+            If old_project is not a Project object.
         """
         if not isinstance(old_project, Project):
             raise TypeError("'old_project' expect a Project object.")
@@ -172,17 +205,23 @@ class WorkExperience(JSONableMixin):
         self.projects.remove(old_project)
         return self
 
-    def reorder_project(self, order: list) -> "WorkExperience":
+    def reorder_project(self, order: List[int]) -> "WorkExperience":
         """Reorder the projects attribute.
 
-        Args:
-            order (list): the new order of the projects attribute.
+        Parameters
+        ----------
+        order : List[int]
+            The new order of the projects attribute.
 
-        Raises:
-            TypeError: if order is not a list.
+        Returns
+        -------
+        WorkExperience
+            The class instance itself.
 
-        Returns:
-            WorkExperience: the class instance itself.
+        Raises
+        ------
+        TypeError
+            If order is not a list.
         """
         if not isinstance(order, list):
             raise TypeError("'order' expect a list.")
@@ -194,14 +233,20 @@ class WorkExperience(JSONableMixin):
     def sort_projects(self, sort_type: Optional[str] = "asc") -> "WorkExperience":
         """Sort the projects attribute by their start and end dates.
 
-        Args:
-            sort_type (str, optional): the order of sorting. Defaults to "asc".
+        Parameters
+        ----------
+        sort_type : str, optional
+            The order of sorting, by default None.
 
-        Raises:
-            TypeError: if sort_type is not a str.
+        Returns
+        -------
+        WorkExperience
+            The class instance itself.
 
-        Returns:
-            WorkExperience: the class instance itself.
+        Raises
+        ------
+        TypeError
+            If sort_type is not a str.
         """
         if not isinstance(sort_type, str):
             raise TypeError("'sort_type' expect a str.")

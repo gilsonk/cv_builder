@@ -1,8 +1,5 @@
 # -*- coding: utf-8 -*-
-"""
-project.py
-Author: Gilson, K.
-"""
+"""The 'project' module of the 'core' package contains classes related to the Project layer of the data model."""
 
 from typing import Any, List, Optional
 
@@ -10,17 +7,26 @@ from cv_builder.core.mixin import JSONableMixin
 
 
 class Project(JSONableMixin):
-    """Project: inherit from 'JSONableMixin'.
+    """Representation of a professional Project attributes.
 
-    Attributes:
-        name (str, optional): name of the project. Defaults to None.
-        redacted (str, optional): confidential proxy name of the project. Defaults to None.
-        position (str, optional): title of the position within the project. Defaults to None.
-        start (int, optional): start date of the project under YYYYMM format. Defaults to None.
-        end (int, optional): end date of the project under YYYYMM format. Defaults to None.
-        description (List[str], optional): list of paragraphs of the description. Defaults to None.
-        activities (List[str], optional): list of the activities. Defaults to None.
-        confidential (bool, optional): whether to treat the project as confidential or not. Defaults to True.
+    Parameters
+    ----------
+    name : str, optional
+        Name of the project, by default None.
+    redacted : str, optional
+        Confidential proxy name of the project, by default None.
+    position : str, optional
+        Title of the position within the project, by default None.
+    start : int, optional
+        Start date of the project under YYYYMM format, by default None.
+    end : int, optional
+        End date of the project under YYYYMM format, by default None.
+    description : List[str], optional
+        List of paragraphs of the description, by default None.
+    activities : List[str], optional
+        List of the activities, by default None.
+    confidential : bool, optional
+        Whether to treat the project as confidential or not, by default None.
     """
 
     def __init__(
@@ -34,18 +40,7 @@ class Project(JSONableMixin):
         activities: Optional[List[str]] = None,
         confidential: Optional[bool] = True,
     ) -> None:
-        """Initialize the Project class instance.
-
-        Args:
-            name (str, optional): name of the project. Defaults to None.
-            redacted (str, optional): confidential proxy name of the project. Defaults to None.
-            position (str, optional): title of the position within the project. Defaults to None.
-            start (int, optional): start date of the project under YYYYMM format. Defaults to None.
-            end (int, optional): end date of the project under YYYYMM format. Defaults to None.
-            description (List[str], optional): list of paragraphs of the description. Defaults to None.
-            activities (List[str], optional): list of the activities. Defaults to None.
-            confidential (bool, optional): whether to treat the project as confidential or not. Defaults to True.
-        """
+        """Initialize the Project class instance."""
         self.name = name
         self.redacted = redacted
         self.position = position
@@ -58,15 +53,23 @@ class Project(JSONableMixin):
     def __setattr__(self, name: str, value: Any) -> None:
         """Validate the attributes of the Project class.
 
-        Args:
-            name (str): the name of the attribute.
-            value (Any): the value of the attribute.
+        Parameters
+        ----------
+        name : str
+            The name of the attribute.
+        value : Any
+            The value of the attribute.
 
-        Raises:
-            TypeError: if 'name', 'redacted', or 'position' are not str.
-            TypeError: if 'start' or 'end' are not an int.
-            AttributeError: if 'start' or 'end' have and incorrect length.
-            TypeError: if 'description' or 'activities' are not a list.
+        Raises
+        ------
+        TypeError
+            If 'name', 'redacted', or 'position' are not str.
+        TypeError
+            If 'start' or 'end' are not an int.
+        AttributeError
+            If 'start' or 'end' have and incorrect length.
+        TypeError
+            If 'description' or 'activities' are not a list.
         """
         if value is not None:
             if name in ["name", "redacted", "position"] and not isinstance(value, str):
@@ -89,14 +92,20 @@ class Project(JSONableMixin):
     def add_description(self, new_description: str) -> "Project":
         """Add a paragraph to the description attribute.
 
-        Args:
-            new_description (str): the paragraph to add.
+        Parameters
+        ----------
+        new_description : str
+            The paragraph to add.
 
-        Raises:
-            TypeError: if new_description is not a str.
+        Returns
+        -------
+        Project
+            The class instance itself.
 
-        Returns:
-            Project: the class instance itself.
+        Raises
+        ------
+        TypeError
+            If new_description is not a str.
         """
         if not isinstance(new_description, str):
             raise TypeError("'new_description' expect a str.")
@@ -109,14 +118,20 @@ class Project(JSONableMixin):
     def remove_description(self, old_description: str) -> "Project":
         """Remove a paragraph from the description attribute.
 
-        Args:
-            old_description (str): the paragraph to remove.
+        Parameters
+        ----------
+        old_description : str
+            The paragraph to remove.
 
-        Raises:
-            TypeError: if old_description is not a str.
+        Returns
+        -------
+        Project
+            The class instance itself.
 
-        Returns:
-            Project: the class instance itself.
+        Raises
+        ------
+        TypeError
+            If old_description is not a str.
         """
         if not isinstance(old_description, str):
             raise TypeError("'old_description' expect a str.")
@@ -124,17 +139,23 @@ class Project(JSONableMixin):
         self.description.remove(old_description)
         return self
 
-    def reorder_description(self, order: list) -> "Project":
+    def reorder_description(self, order: List[int]) -> "Project":
         """Reorder the description attribute.
 
-        Args:
-            order (list): the new order of the description attribute.
+        Parameters
+        ----------
+        order : List[int]
+            The new order of the description attribute.
 
-        Raises:
-            TypeError: if order is not a list.
+        Returns
+        -------
+        Project
+            The class instance itself.
 
-        Returns:
-            Project: the class instance itself.
+        Raises
+        ------
+        TypeError
+            If order is not a list.
         """
         if not isinstance(order, list):
             raise TypeError("'order' expect a list.")
@@ -146,14 +167,20 @@ class Project(JSONableMixin):
     def add_activity(self, new_activity: str) -> "Project":
         """Add an activity to the activities attribute.
 
-        Args:
-            new_activity (str): the activity to add.
+        Parameters
+        ----------
+        new_activity : str
+            The activity to add.
 
-        Raises:
-            TypeError: if new_activity is not a str.
+        Returns
+        -------
+        Project
+            The class instance itself.
 
-        Returns:
-            Project: the class instance itself.
+        Raises
+        ------
+        TypeError
+            If new_activity is not a str.
         """
         if not isinstance(new_activity, str):
             raise TypeError("'new_activity' expect a str.")
@@ -166,14 +193,20 @@ class Project(JSONableMixin):
     def remove_activity(self, old_activity: str) -> "Project":
         """Remove an activity from the activities attribute.
 
-        Args:
-            old_activity (str): the activity to remove.
+        Parameters
+        ----------
+        old_activity : str
+            The activity to remove.
 
-        Raises:
-            TypeError: if old_activity is not a str.
+        Returns
+        -------
+        Project
+            The class instance itself.
 
-        Returns:
-            Project: the class instance itself.
+        Raises
+        ------
+        TypeError
+            If old_activity is not a str.
         """
         if not isinstance(old_activity, str):
             raise TypeError("'old_activity' expect a str.")
@@ -181,17 +214,23 @@ class Project(JSONableMixin):
         self.activities.remove(old_activity)
         return self
 
-    def reorder_activity(self, order: list) -> "Project":
-        """Reorder the activites attribute.
+    def reorder_activity(self, order: List[int]) -> "Project":
+        """Reorder the activities attribute.
 
-        Args:
-            order (list): the new order of the activities attribute.
+        Parameters
+        ----------
+        order : List[int]
+            The new order of the activities attribute.
 
-        Raises:
-            TypeError: if order is not a list.
+        Returns
+        -------
+        Project
+            The class instance itself.
 
-        Returns:
-            Project: the class instance itself.
+        Raises
+        ------
+        TypeError
+            If order is not a list.
         """
         if not isinstance(order, list):
             raise TypeError("'order' expect a list.")

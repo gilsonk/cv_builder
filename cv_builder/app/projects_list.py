@@ -1,8 +1,5 @@
 # -*- coding: utf-8 -*-
-"""
-project_list.py
-Author: Gilson, K
-"""
+"""The 'project_list' module of the 'app' package contains frames related to listing Project objects."""
 
 import tkinter as tk
 from tkinter import ttk
@@ -10,15 +7,20 @@ from typing import Any
 
 
 class ProjectsListFrame(ttk.LabelFrame):
-    """ProjectsListFrame: inherit from 'tkinter.ttk.LabelFrame'."""
+    """Projects Listing Frame.
+
+    This frame holds the actions related to listing and toogling Project objects.
+
+    Parameters
+    ----------
+    container : Any
+        The parent widget.
+    work_index : int
+        The index of the WorkExperience to display.
+    """
 
     def __init__(self, container: Any, work_index: int, *args, **kwargs) -> None:
-        """Initialize the ProjectsListFrame class instance.
-
-        Args:
-            container (Any): the parent widget.
-            work_index (int): the index of the WorkExperience to display.
-        """
+        """Initialise the ProjectsListFrame class instance."""
         super().__init__(container, *args, **kwargs)
         self.container = container
         self.work_index = work_index
@@ -28,7 +30,7 @@ class ProjectsListFrame(ttk.LabelFrame):
         self.grid(column=0, row=0, sticky="nswe")
 
     def __create_widgets(self) -> None:
-        """Initialize the widgets within the frame."""
+        """Initialise the widgets within the frame."""
         self["text"] = self.work_experience.employer
 
         self.information_label = tk.Label(

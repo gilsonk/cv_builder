@@ -1,8 +1,5 @@
 # -*- coding: utf-8 -*-
-"""
-language.py
-Author: Gilson, K.
-"""
+"""The 'language' module of the 'core' package contains classes related to the Language layer of the data model."""
 
 from typing import Any
 
@@ -10,24 +7,22 @@ from cv_builder.core.mixin import JSONableMixin
 
 
 class Language(JSONableMixin):
-    """Language: inherit from 'JSONableMixin'.
+    """Representation of a Language level.
 
-    Attributes:
-        name (str): language name.
-        irl_scale (str, optional): IRL Scale level of competence. Defaults to None.
-        cefr_level (str, optional): CEFR Level of competence. Defaults to None.
+    Parameters
+    ----------
+    name : str
+        Language name.
+    irl_scale : str, optional
+        IRL Scale level of competence. Defaults to None.
+    cefr_level : str, optional
+        CEFR Level of competence. Defaults to None.
     """
 
     def __init__(
         self, name: str, irl_scale: str = None, cefr_level: str = None
     ) -> None:
-        """Initialize the Language class instance.
-
-        Args:
-            name (str): language name.
-            irl_scale (str, optional): IRL Scale level of competence. Defaults to None.
-            cefr_level (str, optional): CEFR Level of competence. Defaults to None.
-        """
+        """Initialize the Language class instance."""
         self.name = name
         self.irl_scale = irl_scale
         self.cefr_level = cefr_level
@@ -35,14 +30,21 @@ class Language(JSONableMixin):
     def __setattr__(self, name: str, value: Any) -> None:
         """Validate the attributes of the Language class.
 
-        Args:
-            name (str): name of the attribute.
-            value (Any): value of the attribute.
+        Parameters
+        ----------
+        name : str
+            Name of the attribute.
+        value : Any
+            Value of the attribute.
 
-        Raises:
-            TypeError: if a value is not a str.
-            AttributeError: if the irl_scale value is unknown.
-            AttributeError: if the cefr_level value is unknown.
+        Raises
+        ------
+        TypeError
+            If a value is not a str.
+        AttributeError
+            If the irl_scale value is unknown.
+        AttributeError
+            If the cefr_level value is unknown.
         """
         # Validation
         if value is not None and not isinstance(value, str):

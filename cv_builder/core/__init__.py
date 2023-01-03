@@ -1,8 +1,5 @@
 # -*- coding: utf-8 -*-
-"""
-__init__.py (cv)
-Author: Gilson, K
-"""
+"""The 'core' package of the 'cv_builder' project contains data model related classes."""
 
 from cv_builder.core.education import Education
 from cv_builder.core.employee import Employee

@@ -1,8 +1,5 @@
 # -*- coding: utf-8 -*-
-"""
-load_files.py
-Author: Gilson, K
-"""
+"""The 'load_files' module of the 'app' package contains frames related to files opening."""
 
 import textwrap
 from tkinter import filedialog, ttk
@@ -17,14 +14,18 @@ from cv_builder.core.employee import Employee
 
 
 class LoadFilesFrame(ttk.Frame):
-    """LoadFilesFrame: inherit from 'tkinter.ttk.Frame'."""
+    """Files Loading Frame.
+
+    This frame holds the actions related to loading files.
+
+    Parameters
+    ----------
+    container : Any
+        The parent widget.
+    """
 
     def __init__(self, container: Any, *args, **kwargs) -> None:
-        """Initialize the LoadFilesFrame class instance.
-
-        Args:
-            container (Any): the parent widget.
-        """
+        """Initialise the LoadFilesFrame class instance."""
         super().__init__(container, *args, **kwargs)
         self.container = container
 
@@ -32,7 +33,7 @@ class LoadFilesFrame(ttk.Frame):
         self.grid(column=0, row=0, sticky="nswe")
 
     def __create_widgets(self) -> None:
-        """Initialize the widgets within the frame."""
+        """Initialise the widgets within the frame."""
         padding = {"padx": 5, "pady": 5}
 
         # Welcome text
@@ -150,11 +151,15 @@ class LoadFilesFrame(ttk.Frame):
     def __ask_save_path(file_type: Optional[str] = None) -> str:
         """Select the file path to export to.
 
-        Args:
-            file_type (str, optional): the file type to filter on. Defaults to None.
+        Parameters
+        ----------
+        file_type : str, optional
+            The file type to filter on, by default None.
 
-        Returns:
-            str: the file path selected.
+        Returns
+        -------
+        str
+            The file path selected.
         """
         if file_type == "docx":
             file_types = (("docx files", "*.docx"), ("All files", "*.*"))
@@ -175,11 +180,15 @@ class LoadFilesFrame(ttk.Frame):
     def __format_date(date_int: int) -> str:
         """Format a date under the YYYYMM format to one with an explicit month.
 
-        Args:
-            date_int (int): the date under the YYYYMM format.
+        Parameters
+        ----------
+        date_int : int
+            Rhe date under the YYYYMM format.
 
-        Returns:
-            str: the under the 'Month YYYY' format.
+        Returns
+        -------
+        str
+            The under the 'Month YYYY' format.
         """
         months_dic = {
             "01": "January",

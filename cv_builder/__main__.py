@@ -1,8 +1,5 @@
 # -*- coding: utf-8 -*-
-"""
-cv_builder.py
-Author: Gilson, K
-"""
+"""Main execution of the 'cv_builder' project."""
 
 __version__ = "0.5.0"
 
