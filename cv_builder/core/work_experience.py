@@ -121,9 +121,13 @@ class WorkExperience(JSONableMixin):
 
         Raises
         ------
+        ValueError
+            If description is empty.
         TypeError
             If old_description is not a str.
         """
+        if self.description is None:
+            raise ValueError("'description' is empty.")
         if not isinstance(old_description, str):
             raise TypeError("'old_description' expect a str.")
 
@@ -145,9 +149,13 @@ class WorkExperience(JSONableMixin):
 
         Raises
         ------
+        ValueError
+            If description is empty.
         TypeError
             If order is not a list.
         """
+        if self.description is None:
+            raise ValueError("'description' is empty.")
         if not isinstance(order, list):
             raise TypeError("'order' expect a list.")
 
@@ -196,9 +204,13 @@ class WorkExperience(JSONableMixin):
 
         Raises
         ------
+        ValueError
+            If projects are empty.
         TypeError
             If old_project is not a Project object.
         """
+        if self.projects is None:
+            raise ValueError("'projects' is empty.'")
         if not isinstance(old_project, Project):
             raise TypeError("'old_project' expect a Project object.")
 
@@ -220,9 +232,13 @@ class WorkExperience(JSONableMixin):
 
         Raises
         ------
+        ValueError
+            If projects are empty.
         TypeError
             If order is not a list.
         """
+        if self.projects is None:
+            raise ValueError("'projects' is empty.'")
         if not isinstance(order, list):
             raise TypeError("'order' expect a list.")
 
@@ -245,9 +261,13 @@ class WorkExperience(JSONableMixin):
 
         Raises
         ------
+        ValueError
+            If projects are empty.
         TypeError
             If sort_type is not a str.
         """
+        if self.projects is None:
+            raise ValueError("'projects' is empty.'")
         if not isinstance(sort_type, str):
             raise TypeError("'sort_type' expect a str.")
 

@@ -101,9 +101,13 @@ class Employee(JSONableMixin):
 
         Raises
         ------
+        ValueError
+            If languages are empty.
         TypeError
             If old_language is not a Language object.
         """
+        if self.languages is None:
+            raise ValueError("'languages' is empty.")
         if not isinstance(old_language, Language):
             raise TypeError("'old_language' expect a Language object.")
 
@@ -125,9 +129,13 @@ class Employee(JSONableMixin):
 
         Raises
         ------
+        ValueError
+            If languages are empty.
         TypeError
             If order is not a list.
         """
+        if self.languages is None:
+            raise ValueError("'languages' is empty.")
         if not isinstance(order, list):
             raise TypeError("'order' expect a list.")
 
@@ -176,9 +184,13 @@ class Employee(JSONableMixin):
 
         Raises
         ------
+        ValueError
+            If summary is empty.
         TypeError
             If old_summary is not a str.
         """
+        if self.summary is None:
+            raise ValueError("'summary' is empty.")
         if not isinstance(old_summary, str):
             raise TypeError("'old_summary' expect a str.")
 
@@ -200,9 +212,13 @@ class Employee(JSONableMixin):
 
         Raises
         ------
+        ValueError
+            If summary is empty.
         TypeError
             If order is not a list.
         """
+        if self.summary is None:
+            raise ValueError("'summary' is empty.")
         if not isinstance(order, list):
             raise TypeError("'order' expect a list.")
 
@@ -251,9 +267,13 @@ class Employee(JSONableMixin):
 
         Raises
         ------
+        ValueError
+            If works are empty.
         TypeError
             If old_work is not a WorkExperience object.
         """
+        if self.works is None:
+            raise ValueError("'works' is empty.")
         if not isinstance(old_work, WorkExperience):
             raise TypeError("'old_work' expect a WorkExperience object.")
 
@@ -275,9 +295,13 @@ class Employee(JSONableMixin):
 
         Raises
         ------
+        ValueError
+            If works are empty.
         TypeError
             If order is not a list.
         """
+        if self.works is None:
+            raise ValueError("'works' is empty.")
         if not isinstance(order, list):
             raise TypeError("'order' expect a list.")
 
@@ -326,9 +350,13 @@ class Employee(JSONableMixin):
 
         Raises
         ------
+        ValueError
+            If trainings are empty.
         TypeError
             If old_training is not a str.
         """
+        if self.trainings is None:
+            raise ValueError("'trainings' is empty.")
         if not isinstance(old_training, str):
             raise TypeError("'old_training' expect a str.")
 
@@ -350,9 +378,13 @@ class Employee(JSONableMixin):
 
         Raises
         ------
+        ValueError
+            If trainings are empty.
         TypeError
             If order is not a list.
         """
+        if self.trainings is None:
+            raise ValueError("'trainings' is empty.")
         if not isinstance(order, list):
             raise TypeError("'order' expect a list.")
 
@@ -401,9 +433,13 @@ class Employee(JSONableMixin):
 
         Raises
         ------
+        ValueError
+            If itskills are empty.
         TypeError
             If old_itskill is not a str.
         """
+        if self.itskills is None:
+            raise ValueError("'itskills' are empty.")
         if not isinstance(old_itskill, str):
             raise TypeError("'old_itskill' expect a str.")
 
@@ -425,9 +461,13 @@ class Employee(JSONableMixin):
 
         Raises
         ------
+        ValueError
+            If itskills are empty.
         TypeError
             If order is not a list.
         """
+        if self.itskills is None:
+            raise ValueError("'itskills' are empty.")
         if not isinstance(order, list):
             raise TypeError("'order' expect a list.")
 
@@ -476,9 +516,13 @@ class Employee(JSONableMixin):
 
         Raises
         ------
+        ValueError
+            If educations are empty.
         TypeError
             If old_education is not an Education object.
         """
+        if self.educations is None:
+            raise ValueError("'educations' is empty.")
         if not isinstance(old_education, Education):
             raise TypeError("'old_education' expect an Education object.")
 
@@ -500,9 +544,13 @@ class Employee(JSONableMixin):
 
         Raises
         ------
+        ValueError
+            If educations are empty.
         TypeError
             If order is not a list.
         """
+        if self.educations is None:
+            raise ValueError("'educations' is empty.")
         if not isinstance(order, list):
             raise TypeError("'order' expect a list.")
 
@@ -525,9 +573,13 @@ class Employee(JSONableMixin):
 
         Raises
         ------
+        ValueError
+            If works are empty.
         TypeError
             If sort_type is not a str.
         """
+        if self.works is None:
+            raise ValueError("'works' is empty.")
         if not isinstance(sort_type, str):
             raise TypeError("'sort_type' expect a str.")
 
@@ -556,13 +608,21 @@ class Employee(JSONableMixin):
 
         Raises
         ------
+        ValueError
+            If works are empty.
         TypeError
             If sort_type is not a str.
+        ValueError
+            If any work projects are empty.
         """
+        if self.works is None:
+            raise ValueError("'works' is empty.")
         if not isinstance(sort_type, str):
             raise TypeError("'sort_type' expect a str.")
 
         for work in self.works:
+            if work.projects is None:
+                raise ValueError("'projects' is empty.")
             if sort_type == "desc":
                 work.projects = sorted(
                     work.projects, key=lambda x: (x.start, x.end), reverse=True
@@ -571,7 +631,7 @@ class Employee(JSONableMixin):
                 work.projects = sorted(
                     work.projects, key=lambda x: (x.start, x.end), reverse=False
                 )
-            return self
+        return self
 
     def sort_educations(self, sort_type: Optional[str] = "asc") -> "Employee":
         """Sort the educations attribute by their start and end dates.
@@ -588,9 +648,13 @@ class Employee(JSONableMixin):
 
         Raises
         ------
+        ValueError
+            If educations are empty.
         TypeError
             If sort_type is not a str.
         """
+        if self.educations is None:
+            raise ValueError("'educations' is empty.")
         if not isinstance(sort_type, str):
             raise TypeError("'sort_type' expect a str.")
 

@@ -28,7 +28,7 @@ class JSONableMixin(object):
         if not isinstance(keep_none, bool):
             raise TypeError("'keep_none' expect a bool.")
 
-        dic = {}
+        dic: Dict[str, Any] = {}
         for key, value in self.__dict__.items():
             if isinstance(value, JSONableMixin):
                 dic[key] = value.to_dict(keep_none)
@@ -38,13 +38,13 @@ class JSONableMixin(object):
                     if isinstance(item, JSONableMixin):
                         lst.append(item.to_dict(keep_none))
                     else:
-                        if item is not None or keep_none == True:
+                        if item is not None or keep_none:
                             lst.append(item)
 
-                if lst or keep_none == True:
+                if lst or keep_none:
                     dic[key] = lst
             else:
-                if value is not None or keep_none == True:
+                if value is not None or keep_none:
                     dic[key] = value
 
         return dic

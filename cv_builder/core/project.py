@@ -130,9 +130,13 @@ class Project(JSONableMixin):
 
         Raises
         ------
+        ValueError
+            If description is empty.
         TypeError
             If old_description is not a str.
         """
+        if self.description is None:
+            raise ValueError("'description' is empty.")
         if not isinstance(old_description, str):
             raise TypeError("'old_description' expect a str.")
 
@@ -154,9 +158,13 @@ class Project(JSONableMixin):
 
         Raises
         ------
+        ValueError
+            If description is empty.
         TypeError
             If order is not a list.
         """
+        if self.description is None:
+            raise ValueError("'description' is empty.")
         if not isinstance(order, list):
             raise TypeError("'order' expect a list.")
 
@@ -205,9 +213,13 @@ class Project(JSONableMixin):
 
         Raises
         ------
+        ValueError
+            If activities are empty.
         TypeError
             If old_activity is not a str.
         """
+        if self.activities is None:
+            raise ValueError("'activities' is empty.")
         if not isinstance(old_activity, str):
             raise TypeError("'old_activity' expect a str.")
 
@@ -229,9 +241,13 @@ class Project(JSONableMixin):
 
         Raises
         ------
+        ValueError
+            If activities are empty.
         TypeError
             If order is not a list.
         """
+        if self.activities is None:
+            raise ValueError("'activities' is empty.")
         if not isinstance(order, list):
             raise TypeError("'order' expect a list.")
 

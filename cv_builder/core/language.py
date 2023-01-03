@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """The 'language' module of the 'core' package contains classes related to the Language layer of the data model."""
 
-from typing import Any
+from typing import Any, Optional
 
 from cv_builder.core.mixin import JSONableMixin
 
@@ -20,7 +20,10 @@ class Language(JSONableMixin):
     """
 
     def __init__(
-        self, name: str, irl_scale: str = None, cefr_level: str = None
+        self,
+        name: str,
+        irl_scale: Optional[str] = None,
+        cefr_level: Optional[str] = None,
     ) -> None:
         """Initialize the Language class instance."""
         self.name = name

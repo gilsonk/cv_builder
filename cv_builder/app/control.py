@@ -28,7 +28,7 @@ class ControlFrame(ttk.Frame):
 
     def __create_widgets(self) -> None:
         """Initialise widgets within the frame."""
-        padding = {"padx": 5, "pady": 5}
+        padding: Any = {"padx": 5, "pady": 5}
 
         self.previous_button = ttk.Button(
             self, text="Previous", command=self.__previous_frame

@@ -4,7 +4,7 @@
 import textwrap
 from tkinter import filedialog, ttk
 from tkinter.messagebox import showerror, showinfo
-from typing import Any, Optional
+from typing import Any, Optional, Tuple
 
 import jinja2
 from docxtpl import DocxTemplate
@@ -34,7 +34,7 @@ class LoadFilesFrame(ttk.Frame):
 
     def __create_widgets(self) -> None:
         """Initialise the widgets within the frame."""
-        padding = {"padx": 5, "pady": 5}
+        padding: Any = {"padx": 5, "pady": 5}
 
         # Welcome text
         welcome_text = textwrap.dedent(
@@ -162,7 +162,10 @@ class LoadFilesFrame(ttk.Frame):
             The file path selected.
         """
         if file_type == "docx":
-            file_types = (("docx files", "*.docx"), ("All files", "*.*"))
+            file_types: Tuple[Any, ...] = (
+                ("docx files", "*.docx"),
+                ("All files", "*.*"),
+            )
         elif file_type == "pptx":
             file_types = (("pptx files", "*.pptx"), ("All files", "*.*"))
         else:

@@ -29,6 +29,11 @@ mypy:
 
 pycodestyle:
   run: true
+  # Black compatibility
+  disable:
+    - E203
+    # FIXME: Find a cleaner way to handle long strings
+    - E501
 
 pydocstyle:
   run: true
